@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Подтверждение присутствия</title>
+
+    <link rel="stylesheet" href="registration.css">
+</head>
+
+<body>
+
+    <main class="registration-page">
+
+        <div class="registration-page__content">
+
+            <div class="registration-page__ornament">
+                ❦
+            </div>
+
+            <p class="registration-page__subtitle">
+                ПОДТВЕРЖДЕНИЕ
+            </p>
+
+            <h1 class="registration-page__title">
+                Будете ли вы<br>
+                с нами?
+            </h1>
+
+            <div class="registration-page__divider">
+                <span></span>
+                <i>❦</i>
+                <span></span>
+            </div>
+
+            <p class="registration-page__text">
+                Пожалуйста, заполните форму,<br>
+                чтобы мы могли подготовиться к празднику.
+            </p>
+
+            <form class="registration-form" id="registrationForm">
+
+                <div class="input-group">
+                    <label for="fullname">
+                        Ваше имя
+                    </label>
+
+                    <input type="text" id="fullname" name="fullname" placeholder="Фамилия Имя Отчество"
+                        autocomplete="name" required>
+                </div>
+
+                <div class="attendance">
+
+                    <p class="attendance__title">
+                        Подтвердите присутствие
+                    </p>
+
+                    <label class="attendance-option">
+                        <input type="radio" name="attendance" value="yes" required>
+
+                        <span class="attendance-option__circle"></span>
+
+                        <span class="attendance-option__content">
+                            <strong>Да, я приду</strong>
+                            <small>С удовольствием разделю этот день с вами</small>
+                        </span>
+                    </label>
+
+                    <label class="attendance-option">
+                        <input type="radio" name="attendance" value="no">
+
+                        <span class="attendance-option__circle"></span>
+
+                        <span class="attendance-option__content">
+                            <strong>К сожалению, не смогу</strong>
+                            <small>Спасибо за приглашение</small>
+                        </span>
+                    </label>
+
+                </div>
+
+                <button type="submit" class="registration-page__button">
+                    <span>Подтвердить</span>
+                    <b>♡</b>
+                </button>
+
+            </form>
+
+            <div class="registration-success" id="registrationSuccess">
+
+                <div class="success-icon">
+                    ❦
+                </div>
+
+                <h2 id="successTitle">
+                    Спасибо!
+                </h2>
+
+                <p id="successText">
+                    Ваш ответ сохранён.
+                </p>
+
+                <button type="button" class="registration-back" onclick="window.location.href='location.html'">
+                    Вернуться
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="registration.js"></script>
+
+</body>
+
+</html>

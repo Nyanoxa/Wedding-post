@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    background: #f4efe4;
+
+    font-family: Georgia, serif;
+
+    color: #5a4035;
+
+    opacity: 0;
+
+    animation:
+        pageAppear 1.2s ease forwards;
+}
+
+
+/* =========================
+   ПОЯВЛЕНИЕ
+========================= */
+
+@keyframes pageAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(1.02);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+}
+
+
+/* =========================
+   СТРАНИЦА
+========================= */
+
+.location-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+    position: relative;
+}
+
+
+/* Декоративные линии */
+
+.location-page::before,
+.location-page::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    width: 1px;
+
+    height: 80px;
+
+    background: #b49a6c;
+
+    opacity: 0.5;
+
+    transform:
+        translateX(-50%);
+}
+
+.location-page::before {
+    top: 0;
+}
+
+.location-page::after {
+    bottom: 0;
+}
+
+
+/* =========================
+   КОНТЕНТ
+========================= */
+
+.location-page__content {
+    width: 100%;
+
+    max-width: 600px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* Орнамент */
+
+.location-page__ornament {
+    font-size: 38px;
+
+    color: #b49a6c;
+
+    margin-bottom: 28px;
+
+    line-height: 1;
+
+    animation:
+        fadeUp 0.8s 0.2s both;
+}
+
+
+/* Подзаголовок */
+
+.location-page__subtitle {
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #806b5d;
+
+    margin-bottom: 25px;
+
+    animation:
+        fadeUp 0.8s 0.35s both;
+}
+
+
+/* Заголовок */
+
+.location-page__title {
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(38px, 7vw, 56px);
+
+    font-weight: normal;
+
+    line-height: 1.15;
+
+    color: #5a4035;
+
+    animation:
+        fadeUp 0.9s 0.5s both;
+}
+
+
+/* Разделитель */
+
+.location-page__divider {
+    width: 170px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 30px 0;
+
+    animation:
+        fadeUp 0.8s 0.65s both;
+}
+
+.location-page__divider span {
+    width: 55px;
+
+    height: 1px;
+
+    background: #b49a6c;
+}
+
+.location-page__divider i {
+    font-style: normal;
+
+    font-size: 14px;
+
+    color: #b49a6c;
+}
+
+
+/* =========================
+   КАРТОЧКА
+========================= */
+
+.location-card {
+    width: min(100%, 420px);
+
+    padding: 34px 30px;
+
+    background:
+        rgba(255, 250, 241, 0.55);
+
+    border: 1px solid #d4c4aa;
+
+    box-shadow:
+        0 15px 35px rgba(70, 50, 40, 0.08);
+
+    animation:
+        fadeUp 0.9s 0.8s both;
+}
+
+
+/* Иконка */
+
+.location-card__icon {
+    font-size: 28px;
+
+    color: #b49a6c;
+
+    margin-bottom: 16px;
+}
+
+
+/* Заголовок */
+
+.location-card h2 {
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: 30px;
+
+    font-weight: normal;
+
+    color: #60443a;
+
+    margin-bottom: 10px;
+}
+
+
+/* Название */
+
+.location-card__name {
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: 22px;
+
+    color: #5a4035;
+
+    margin-bottom: 18px;
+}
+
+
+/* Адрес */
+
+.location-card__address {
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: #806b5d;
+}
+
+
+/* Время */
+
+.location-card__time {
+    margin-top: 22px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #d4c4aa;
+
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: 25px;
+
+    letter-spacing: 3px;
+
+    color: #60443a;
+}
+
+
+/* =========================
+   КНОПКА КАРТЫ
+========================= */
+
+.location-page__button {
+    margin-top: 35px;
+
+    min-width: 175px;
+
+    padding: 13px 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    background: transparent;
+
+    border: 1px solid #b9a78b;
+
+    color: #60443a;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background 0.4s ease,
+        color 0.4s ease,
+        transform 0.4s ease;
+
+    animation:
+        fadeUp 0.8s 1s both;
+}
+
+.location-page__button b {
+    font-size: 17px;
+
+    font-weight: normal;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.location-page__button:hover {
+    background: #60443a;
+
+    color: #f4efe4;
+
+    transform:
+        translateY(-3px);
+}
+
+.location-page__button:hover b {
+    transform:
+        translate(3px, -3px);
+}
+
+
+/* =========================
+   АНИМАЦИЯ
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================
+   МОБИЛЬНЫЙ
+========================= */
+
+@media (max-width: 500px) {
+
+    .location-page {
+        padding: 50px 20px;
+    }
+
+    .location-page__ornament {
+        font-size: 32px;
+
+        margin-bottom: 23px;
+    }
+
+    .location-page__subtitle {
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+    .location-page__title {
+        font-size: 37px;
+    }
+
+    .location-card {
+        padding: 28px 20px;
+    }
+
+    .location-card h2 {
+        font-size: 27px;
+    }
+
+    .location-card__name {
+        font-size: 20px;
+    }
+
+}
+
+.location-page__button--next {
+    margin-top: 14px;
+    background: #4b3c31;
+    color: #fff;
+}
+
+.location-page__button--next:hover {
+    background: #604c3d;
+}

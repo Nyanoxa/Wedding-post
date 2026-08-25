@@ -1,0 +1,203 @@
+/* =========================
+   ОБЩИЕ НАСТРОЙКИ
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    background: #f4efe4;
+
+    font-family: Georgia, serif;
+
+    color: #5a4035;
+}
+
+
+/* =========================
+   ВТОРОЙ ЭКРАН
+========================= */
+
+.welcome {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 25px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   ВЕРХНИЙ ОРНАМЕНТ
+========================= */
+
+.welcome__ornament {
+    color: #b49a6c;
+
+    font-size: 38px;
+
+    margin-bottom: 30px;
+
+    line-height: 1;
+}
+
+
+/* =========================
+   ПОДЗАГОЛОВОК
+========================= */
+
+.welcome__subtitle {
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #806b5d;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   ИМЕНА
+========================= */
+
+.welcome__title {
+    font-family: "Times New Roman", serif;
+
+    font-size: clamp(42px, 7vw, 64px);
+
+    font-weight: normal;
+
+    color: #5a4035;
+
+    line-height: 1.15;
+}
+
+
+/* =========================
+   ЛИНИЯ
+========================= */
+
+.welcome__line {
+    position: relative;
+
+    width: 120px;
+    height: 1px;
+
+    background: #b49a6c;
+
+    margin: 35px 0;
+}
+
+
+/* Маленькая точка в центре */
+
+.welcome__line::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 7px;
+    height: 7px;
+
+    background: #b49a6c;
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* =========================
+   ОСНОВНОЙ ТЕКСТ
+========================= */
+
+.welcome__text {
+    max-width: 560px;
+
+    font-size: 19px;
+
+    line-height: 1.9;
+
+    color: #6b5146;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   НИЖНИЙ ОРНАМЕНТ
+========================= */
+
+.welcome__ornament--bottom {
+    margin-top: 25px;
+
+    margin-bottom: 0;
+
+    font-size: 30px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================= */
+
+@media (max-width: 500px) {
+
+    .welcome {
+        padding: 50px 22px;
+    }
+
+    .welcome__ornament {
+        font-size: 32px;
+
+        margin-bottom: 25px;
+    }
+
+    .welcome__subtitle {
+        font-size: 10px;
+
+        letter-spacing: 3px;
+
+        margin-bottom: 22px;
+    }
+
+    .welcome__title {
+        font-size: 40px;
+    }
+
+    .welcome__line {
+        width: 90px;
+
+        margin: 28px 0;
+    }
+
+    .welcome__text {
+        font-size: 17px;
+
+        line-height: 1.8;
+    }
+
+}

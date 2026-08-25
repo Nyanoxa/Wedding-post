@@ -1,0 +1,428 @@
+/* =========================
+   ОБЩЕЕ
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    background: #f4efe4;
+
+    font-family: Georgia, serif;
+
+    color: #5a4035;
+
+    opacity: 0;
+
+    animation: pageAppear 1.2s ease forwards;
+}
+
+
+/* =========================
+   ПОЯВЛЕНИЕ
+========================= */
+
+@keyframes pageAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================
+   СТРАНИЦА
+========================= */
+
+.date-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    position: relative;
+}
+
+
+/* =========================
+   ДЕКОРАТИВНЫЕ ЛИНИИ ПО КРАЯМ
+========================= */
+
+.date-page::before,
+.date-page::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    width: 1px;
+    height: 80px;
+
+    background: #b49a6c;
+
+    opacity: 0.5;
+
+    transform: translateX(-50%);
+}
+
+.date-page::before {
+    top: 0;
+}
+
+.date-page::after {
+    bottom: 0;
+}
+
+
+/* =========================
+   КОНТЕНТ
+========================= */
+
+.date-page__content {
+    width: 100%;
+    max-width: 600px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* =========================
+   ОРНАМЕНТ
+========================= */
+
+.date-page__ornament {
+    font-size: 38px;
+
+    color: #b49a6c;
+
+    margin-bottom: 30px;
+
+    line-height: 1;
+
+    animation:
+        fadeUp 0.8s 0.2s both;
+}
+
+
+/* =========================
+   ПОДЗАГОЛОВОК
+========================= */
+
+.date-page__subtitle {
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #806b5d;
+
+    margin-bottom: 35px;
+
+    animation:
+        fadeUp 0.8s 0.35s both;
+}
+
+
+/* =========================
+   ДАТА
+========================= */
+
+.date-page__date {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    animation:
+        fadeUp 0.9s 0.5s both;
+}
+
+
+/* Число */
+
+.date-page__day {
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: clamp(90px, 18vw, 145px);
+
+    line-height: 0.8;
+
+    font-weight: normal;
+
+    color: #60443a;
+}
+
+
+/* Месяц */
+
+.date-page__month {
+    margin-top: 18px;
+
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: clamp(34px, 7vw, 50px);
+
+    font-weight: normal;
+
+    color: #60443a;
+}
+
+
+/* Год */
+
+.date-page__year {
+    margin-top: 12px;
+
+    font-size: 15px;
+
+    letter-spacing: 8px;
+
+    color: #b49a6c;
+
+    transform: translateX(4px);
+}
+
+
+/* =========================
+   РАЗДЕЛИТЕЛЬ
+========================= */
+
+.date-page__divider {
+    width: 190px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 35px 0;
+
+    animation:
+        fadeUp 0.8s 0.7s both;
+}
+
+.date-page__divider span {
+    width: 65px;
+
+    height: 1px;
+
+    background: #b49a6c;
+}
+
+.date-page__divider i {
+    font-style: normal;
+
+    font-size: 14px;
+
+    color: #b49a6c;
+}
+
+
+/* =========================
+   ВРЕМЯ
+========================= */
+
+.date-page__time {
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: 42px;
+
+    letter-spacing: 5px;
+
+    color: #60443a;
+
+    animation:
+        fadeUp 0.8s 0.85s both;
+}
+
+
+/* =========================
+   ОПИСАНИЕ
+========================= */
+
+.date-page__description {
+    margin-top: 10px;
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+
+    color: #806b5d;
+
+    animation:
+        fadeUp 0.8s 1s both;
+}
+
+
+/* =========================
+   КНОПКА
+========================= */
+
+.date-page__button {
+    margin-top: 45px;
+
+    min-width: 150px;
+
+    padding: 13px 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    background: transparent;
+
+    border: 1px solid #b9a78b;
+
+    color: #60443a;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.4s ease,
+        color 0.4s ease,
+        transform 0.4s ease;
+
+    animation:
+        fadeUp 0.8s 1.1s both;
+}
+
+.date-page__button b {
+    font-size: 18px;
+
+    font-weight: normal;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.date-page__button:hover {
+    background: #60443a;
+
+    color: #f4efe4;
+
+    transform: translateY(-3px);
+}
+
+.date-page__button:hover b {
+    transform: translateX(5px);
+}
+
+
+/* =========================
+   АНИМАЦИЯ
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================= */
+
+@media (max-width: 500px) {
+
+    .date-page {
+        padding: 45px 20px;
+    }
+
+    .date-page__ornament {
+        font-size: 32px;
+
+        margin-bottom: 25px;
+    }
+
+    .date-page__subtitle {
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+        margin-bottom: 30px;
+    }
+
+    .date-page__day {
+        font-size: 95px;
+    }
+
+    .date-page__month {
+        font-size: 36px;
+    }
+
+    .date-page__year {
+        font-size: 13px;
+
+        letter-spacing: 6px;
+    }
+
+    .date-page__divider {
+        margin: 30px 0;
+    }
+
+    .date-page__time {
+        font-size: 34px;
+    }
+
+}
