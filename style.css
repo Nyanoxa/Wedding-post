@@ -1,7 +1,3 @@
-/* ========================================
-   ОСНОВНЫЕ НАСТРОЙКИ
-======================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -17,11 +13,7 @@ body {
 
 body {
     background: #f4f0e7;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family: Georgia, "Times New Roman", serif;
 }
 
 
@@ -51,10 +43,7 @@ body {
     position: relative;
 
     width: min(90vw, 495px);
-
     aspect-ratio: 3 / 2;
-
-    height: auto;
 
     background: #e9e0cf;
 
@@ -67,94 +56,11 @@ body {
 
     cursor: pointer;
 
+    isolation: isolate;
+
     transition:
         transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
         opacity 0.45s ease;
-
-    will-change: transform, opacity;
-}
-
-
-/* ========================================
-   ТЕЛО КОНВЕРТА
-======================================== */
-
-.envelope__body {
-    position: absolute;
-
-    inset: 0;
-
-    background: transparent;
-
-    /* ВАЖНО:
-       тело выше клапана,
-       поэтому текст не пропадает */
-    z-index: 20;
-}
-
-
-/* ========================================
-   ТЕНЬ ПЕРВОГО СГИБА
-   ДОХОДИТ ДО КРУЖКА
-======================================== */
-
-.envelope__body::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 64%;
-
-    background: rgba(91, 68, 57, 0.10);
-
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        50% 100%
-    );
-
-    z-index: -1;
-
-    pointer-events: none;
-}
-
-
-/* ========================================
-   ВЕРХНИЙ КЛАПАН
-======================================== */
-
-.envelope__top {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    /* СГИБ ДОХОДИТ ДО КРУЖКА */
-    height: 64%;
-
-    background: #ded3c0;
-
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        50% 100%
-    );
-
-    /* Ниже текста */
-    z-index: 10;
-
-    pointer-events: none;
-
-    filter:
-        drop-shadow(
-            0 2px 3px rgba(91, 68, 57, 0.12)
-        );
 }
 
 
@@ -217,30 +123,77 @@ body {
 
 
 /* ========================================
-   ТЕКСТ ПРИГЛАШЕНИЯ
+   ВЕРХНИЙ КЛАПАН
+   ДОТЯНУТ ДО КРУЖКА
 ======================================== */
 
-.invitation__text {
+.envelope__top {
     position: absolute;
 
-    top: 15%;
-
+    top: 0;
     left: 0;
-    right: 0;
 
     width: 100%;
+    height: 64%;
 
-    text-align: center;
+    background: #ded3c0;
 
-    /* ТЕКСТ ПОВЕРХ КЛАПАНА */
-    z-index: 50;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 2px 3px rgba(91, 68, 57, 0.12)
+        );
+}
+
+
+/* ========================================
+   ТЕЛО
+======================================== */
+
+.envelope__body {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
 
     pointer-events: none;
 }
 
 
 /* ========================================
-   ПРИГЛАШЕНИЕ
+   ТЕКСТ
+======================================== */
+
+.invitation__text {
+    position: absolute;
+
+    top: 15%;
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    z-index: 50;
+
+    color: #593f36;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   НАДПИСЬ "ПРИГЛАШЕНИЕ"
 ======================================== */
 
 .invitation__text p {
@@ -281,7 +234,6 @@ body {
     width: 100%;
 
     margin: 0;
-
     padding: 0;
 
     font-family:
@@ -313,25 +265,21 @@ body {
 
 
 /* ========================================
-   ПЕЧАТЬ
+   КРУЖОК / ПЕЧАТЬ
 ======================================== */
 
 .envelope__seal {
-    position: absolute !important;
+    position: absolute;
 
-    left: 50% !important;
+    left: 50%;
+    top: 55%;
 
-    top: 55% !important;
+    width: 58px;
+    height: 58px;
 
-    width: 58px !important;
-    height: 58px !important;
+    transform: translateX(-50%);
 
-    margin: 0 !important;
-
-    transform:
-        translateX(-50%) !important;
-
-    display: flex !important;
+    display: flex;
 
     align-items: center;
     justify-content: center;
@@ -355,8 +303,7 @@ body {
 
     line-height: 1;
 
-    /* КРУЖОК ПОВЕРХ ВСЕГО */
-    z-index: 100 !important;
+    z-index: 100;
 
     box-shadow:
         0 7px 16px rgba(55, 42, 33, 0.16),
@@ -370,18 +317,18 @@ body {
 
 
 /* ========================================
-   НАВЕДЕНИЕ НА ПЕЧАТЬ
+   НАВЕДЕНИЕ
 ======================================== */
 
-.envelope__seal:hover {
+.envelope:hover .envelope__seal {
     transform:
         translateX(-50%)
-        scale(1.03) !important;
+        scale(1.03);
 }
 
 
 /* ========================================
-   АНИМАЦИЯ КОНВЕРТА
+   АНИМАЦИЯ
 ======================================== */
 
 .envelope.exit {
@@ -400,9 +347,7 @@ body {
 .invitation__hint {
     margin-top: 12px;
 
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 
     font-size: 8px;
 
@@ -417,27 +362,18 @@ body {
     text-align: center;
 
     white-space: nowrap;
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
 }
 
-
-/* ========================================
-   СКРЫТИЕ ПОДСКАЗКИ
-======================================== */
 
 .invitation__hint.hidden {
     opacity: 0;
 
-    transform:
-        translateY(5px);
+    transform: translateY(5px);
 }
 
 
 /* ========================================
-   ПЕРЕХОД НА СЛЕДУЮЩУЮ СТРАНИЦУ
+   ПЕРЕХОД
 ======================================== */
 
 .page-transition {
@@ -456,15 +392,8 @@ body {
 
     opacity: 0;
 
-    transform:
-        translate3d(0, 0, 0);
-
-    transition:
-        opacity 0.45s ease;
-
-    will-change: opacity;
+    transition: opacity 0.45s ease;
 }
-
 
 .page-transition.active {
     opacity: 1;
@@ -472,7 +401,7 @@ body {
 
 
 /* ========================================
-   МОБИЛЬНАЯ ВЕРСИЯ
+   ТЕЛЕФОН
 ======================================== */
 
 @media (max-width: 600px) {
@@ -486,24 +415,20 @@ body {
         justify-content: center;
     }
 
-
     .envelope {
         width: 88vw;
 
         max-width: 400px;
 
-        min-width: 0;
-
         aspect-ratio: 3 / 2;
     }
 
 
-    /* ТЕКСТ */
+    /* Текст */
 
     .invitation__text {
         top: 14%;
     }
-
 
     .invitation__text p {
         font-size:
@@ -515,43 +440,33 @@ body {
         margin-bottom: 10px;
     }
 
-
     .invitation__text h1 {
         font-size:
             clamp(22px, 6.5vw, 30px);
     }
 
 
-    /* ВЕРХНИЙ СГИБ ДО КРУЖКА */
+    /* Клапан до печати */
 
     .envelope__top {
         height: 64%;
     }
 
 
-    /* ТЕНЬ ДО КРУЖКА */
-
-    .envelope__body::before {
-        height: 64%;
-    }
-
-
-    /* КРУЖОК */
+    /* Печать */
 
     .envelope__seal {
-        left: 50% !important;
+        left: 50%;
+        top: 55%;
 
-        top: 55% !important;
+        width: 58px;
+        height: 58px;
 
-        width: 58px !important;
-        height: 58px !important;
-
-        transform:
-            translateX(-50%) !important;
+        transform: translateX(-50%);
 
         font-size: 27px;
 
-        z-index: 100 !important;
+        z-index: 100;
     }
 
 
@@ -575,16 +490,13 @@ body {
         padding: 8px;
     }
 
-
     .envelope {
         width: 86vw;
     }
 
-
     .invitation__text {
         top: 14%;
     }
-
 
     .invitation__text p {
         font-size: 7px;
@@ -594,39 +506,24 @@ body {
         margin-bottom: 9px;
     }
 
-
     .invitation__text h1 {
         font-size: 21px;
     }
-
 
     .envelope__top {
         height: 64%;
     }
 
-
-    .envelope__body::before {
-        height: 64%;
-    }
-
-
     .envelope__seal {
-        width: 50px !important;
-        height: 50px !important;
+        width: 50px;
+        height: 50px;
 
-        left: 50% !important;
-        top: 55% !important;
-
-        transform:
-            translateX(-50%) !important;
+        top: 55%;
 
         font-size: 23px;
 
         border-width: 2px;
-
-        z-index: 100 !important;
     }
-
 
     .invitation__hint {
         margin-top: 10px;
@@ -648,27 +545,17 @@ body {
         padding: 8px;
     }
 
-
     .envelope {
-        width:
-            min(82vw, 380px);
+        width: min(82vw, 380px);
     }
-
 
     .envelope__top {
         height: 64%;
     }
 
-
-    .envelope__body::before {
-        height: 64%;
-    }
-
-
     .envelope__seal {
-        top: 55% !important;
+        top: 55%;
     }
-
 
     .invitation__hint {
         margin-top: 9px;
@@ -685,30 +572,21 @@ body {
 @media (max-height: 550px) {
 
     .envelope {
-        width:
-            min(75vw, 340px);
+        width: min(75vw, 340px);
     }
-
 
     .envelope__top {
         height: 64%;
     }
 
-
-    .envelope__body::before {
-        height: 64%;
-    }
-
-
     .envelope__seal {
-        width: 48px !important;
-        height: 48px !important;
+        width: 48px;
+        height: 48px;
 
-        top: 55% !important;
+        top: 55%;
 
         font-size: 22px;
     }
-
 
     .invitation__hint {
         margin-top: 6px;
