@@ -1,61 +1,125 @@
+/* ========================================
+   ОСНОВНЫЕ НАСТРОЙКИ
+======================================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html,
 body {
-    min-height: 100vh;
-    background: #f4efe4;
-    font-family: Georgia, serif;
-    color: #5a4035;
+    width: 100%;
+    height: 100%;
 }
 
-/* Главный экран */
+body {
+    background: #f4f0e7;
 
-.invitation {
-    min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     overflow: hidden;
 }
 
-/* Конверт */
 
-.envelope {
-    width: 330px;
-    height: 220px;
+/* ========================================
+   ОСНОВНОЙ БЛОК
+======================================== */
 
-    position: relative;
+.invitation {
+    width: 100%;
+    height: 100vh;
 
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
 }
 
-/* Основа конверта */
+
+/* ========================================
+   КОНВЕРТ
+======================================== */
+
+.envelope {
+    position: relative;
+
+    width: min(94vw, 495px);
+    height: min(66vw, 330px);
+
+    min-height: 250px;
+
+    background: #e9e0cf;
+
+    border: 1px solid #cbbda5;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 35px rgba(73, 57, 42, 0.10);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+        opacity 0.45s ease;
+
+    will-change: transform, opacity;
+}
+
+
+/* ========================================
+   ТЕЛО КОНВЕРТА
+======================================== */
 
 .envelope__body {
     position: absolute;
 
-    width: 100%;
-    height: 100%;
+    inset: 0;
 
-    background: #e6ddcd;
+    background: transparent;
 
-    border: 1px solid #b9a78b;
-
-    box-shadow:
-        0 15px 35px rgba(70, 50, 40, 0.18);
-
-    overflow: hidden;
+    z-index: 4;
 }
 
-/* Треугольник снизу */
 
-.envelope__body::after {
+/* ========================================
+   ВЕРХНИЙ КЛАПАН
+======================================== */
+
+.envelope__top {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 145px;
+
+    background: #ded3c0;
+
+    clip-path: polygon(0 0,
+            100% 0,
+            50% 100%);
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   ЛЕВАЯ СКЛАДКА
+======================================== */
+
+.envelope::before {
     content: "";
 
     position: absolute;
@@ -63,175 +127,468 @@ body {
     left: 0;
     bottom: 0;
 
-    width: 0;
-    height: 0;
+    width: 100%;
+    height: 155px;
 
-    border-left: 165px solid transparent;
-    border-right: 165px solid transparent;
-    border-bottom: 115px solid #d8cdbb;
+    background: #f1eadc;
+
+    clip-path: polygon(0 0,
+            50% 100%,
+            0 100%);
+
+    z-index: 2;
+
+    pointer-events: none;
 }
 
-/* Верхняя часть конверта */
 
-.envelope__top {
+/* ========================================
+   ПРАВАЯ СКЛАДКА
+======================================== */
+
+.envelope::after {
+    content: "";
+
     position: absolute;
 
-    z-index: 3;
+    right: 0;
+    bottom: 0;
 
-    width: 0;
-    height: 0;
+    width: 100%;
+    height: 155px;
 
-    border-left: 165px solid transparent;
-    border-right: 165px solid transparent;
-    border-top: 115px solid #eee8dc;
+    background: #f1eadc;
+
+    clip-path: polygon(100% 0,
+            50% 100%,
+            100% 100%);
+
+    z-index: 2;
+
+    pointer-events: none;
 }
 
-/* Текст */
+
+/* ========================================
+   ТЕКСТ ПРИГЛАШЕНИЯ
+======================================== */
 
 .invitation__text {
     position: absolute;
 
-    z-index: 5;
+    top: 48px;
+
+    left: 10px;
+    right: 10px;
+
+    text-align: center;
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   ПРИГЛАШЕНИЕ
+======================================== */
+
+.invitation__text p {
+    margin: 0 0 18px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    letter-spacing: 6px;
+
+    color: #5b4439;
+
+    text-transform: uppercase;
+}
+
+
+/* ========================================
+   ИМЕНА
+======================================== */
+
+.invitation__text h1 {
+    position: relative;
+
+    display: block;
 
     width: 100%;
 
-    top: 35px;
+    margin: 0;
+
+    padding: 0 5px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(27px, 6.8vw, 39px);
+
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    letter-spacing: 0;
+
+    color: #593f36;
+
+    white-space: nowrap;
+
+    overflow: visible;
 
     text-align: center;
+
+    z-index: 21;
 }
 
-.invitation__text p {
-    font-size: 12px;
 
-    letter-spacing: 4px;
-
-    margin-bottom: 12px;
-}
-
-.invitation__text h1 {
-    font-family: "Times New Roman", serif;
-
-    font-size: 30px;
-
-    font-weight: normal;
-}
-
-/* Печать */
+/* ========================================
+   ПЕЧАТЬ
+======================================== */
 
 .envelope__seal {
     position: absolute;
 
-    z-index: 10;
-
     left: 50%;
-    top: 50%;
+    bottom: 43px;
 
-    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
 
-    width: 62px;
-    height: 62px;
+    transform: translateX(-50%);
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     border-radius: 50%;
 
-    background: #60443a;
+    background: #654a40;
 
-    border: 3px solid #b89b68;
+    border: 3px solid #b49a64;
 
-    color: #dfc99f;
+    color: #e8d9ae;
 
-    font-size: 27px;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 29px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    z-index: 30;
 
     box-shadow:
-        0 5px 15px rgba(50, 30, 20, 0.2);
+        0 7px 16px rgba(55, 42, 33, 0.16);
+
+    transition:
+        transform 0.3s ease;
 }
 
-/* Подсказка */
+
+/* ========================================
+   НАВЕДЕНИЕ НА ПЕЧАТЬ
+======================================== */
+
+.envelope:hover .envelope__seal {
+    transform:
+        translateX(-50%) scale(1.03);
+}
+
+
+/* ========================================
+   АНИМАЦИЯ КОНВЕРТА
+======================================== */
+
+.envelope.exit {
+    transform:
+        translate3d(0, -12px, 0) scale(0.97);
+
+    opacity: 0.85;
+}
+
+
+/* ========================================
+   ПОДСКАЗКА
+======================================== */
 
 .invitation__hint {
-    margin-top: 45px;
+    margin-top: 18px;
 
-    font-size: 14px;
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size: 11px;
 
     letter-spacing: 2px;
 
-    color: #806b5d;
+    color: #8c7a69;
 
-    animation: pulse 2s infinite;
+    opacity: 0.8;
+
+    text-transform: uppercase;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
 }
 
-@keyframes pulse {
 
-    0% {
-        opacity: 0.4;
-    }
+/* ========================================
+   СКРЫТИЕ ПОДСКАЗКИ
+======================================== */
 
-    50% {
-        opacity: 1;
-    }
+.invitation__hint.hidden {
+    opacity: 0;
 
-    100% {
-        opacity: 0.4;
-    }
-
+    transform:
+        translateY(5px);
 }
 
-/* Телефон */
 
-@media (max-width: 500px) {
-
-    .envelope {
-        width: 290px;
-        height: 195px;
-    }
-
-    .envelope__top {
-        border-left-width: 145px;
-        border-right-width: 145px;
-        border-top-width: 100px;
-    }
-
-    .envelope__body::after {
-        border-left-width: 145px;
-        border-right-width: 145px;
-        border-bottom-width: 105px;
-    }
-
-    .invitation__text h1 {
-        font-size: 29px;
-    }
-
-}
-
-/* =========================
-   ПЕРЕХОД НА ВТОРУЮ СТРАНИЦУ
-========================= */
+/* ========================================
+   ПЕРЕХОД НА СЛЕДУЮЩУЮ СТРАНИЦУ
+======================================== */
 
 .page-transition {
     position: fixed;
 
     inset: 0;
 
-    z-index: 100;
+    width: 100%;
+    height: 100%;
 
-    background: #f4efe4;
+    background: #f4f0e7;
 
-    opacity: 0;
+    z-index: 9999;
 
     pointer-events: none;
 
-    transform: scale(1.04);
+    opacity: 0;
+
+    transform:
+        translate3d(0, 0, 0);
 
     transition:
-        opacity 0.9s ease,
-        transform 1.1s cubic-bezier(.22, .61, .36, 1);
+        opacity 0.45s ease;
+
+    will-change: opacity;
 }
+
 
 .page-transition.active {
     opacity: 1;
+}
 
-    transform: scale(1);
+
+/* ========================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+======================================== */
+
+@media (max-width: 600px) {
+
+    .invitation {
+        padding: 15px;
+    }
+
+
+    .envelope {
+        width: 94vw;
+
+        height: 62vw;
+
+        min-height: 230px;
+
+        max-height: 300px;
+    }
+
+
+    .envelope__top {
+        height: 125px;
+    }
+
+
+    .envelope::before,
+    .envelope::after {
+        height: 140px;
+    }
+
+
+    .invitation__text {
+        top: 42px;
+
+        left: 5px;
+        right: 5px;
+    }
+
+
+    .invitation__text p {
+        font-size: 10px;
+
+        letter-spacing: 4.5px;
+
+        margin-bottom: 15px;
+    }
+
+
+    .invitation__text h1 {
+        font-size: 25px;
+
+        padding: 0;
+
+        letter-spacing: 0;
+
+        white-space: nowrap;
+    }
+
+
+    .envelope__seal {
+        width: 58px;
+        height: 58px;
+
+        bottom: 40px;
+
+        border-width: 3px;
+
+        font-size: 27px;
+    }
+
+
+    .invitation__hint {
+        font-size: 9px;
+
+        letter-spacing: 1.5px;
+    }
+}
+
+
+/* ========================================
+   ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ
+======================================== */
+
+@media (max-width: 380px) {
+
+    .envelope {
+        min-height: 215px;
+    }
+
+
+    .envelope__top {
+        height: 110px;
+    }
+
+
+    .envelope::before,
+    .envelope::after {
+        height: 125px;
+    }
+
+
+    .invitation__text {
+        top: 35px;
+    }
+
+
+    .invitation__text p {
+        font-size: 9px;
+
+        letter-spacing: 3.5px;
+
+        margin-bottom: 13px;
+    }
+
+
+    .invitation__text h1 {
+        font-size: 23px;
+
+        padding: 0;
+
+        letter-spacing: 0;
+    }
+
+
+    .envelope__seal {
+        width: 55px;
+        height: 55px;
+
+        bottom: 35px;
+
+        font-size: 26px;
+    }
+}
+
+
+/* ========================================
+   ОТКЛЮЧЕНИЕ АНИМАЦИЙ
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .envelope,
+    .envelope__seal,
+    .invitation__hint,
+    .page-transition {
+        transition: none;
+    }
+}
+
+.invitation__text {
+    position: absolute !important;
+
+    top: 48px !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+
+    text-align: center !important;
+
+    z-index: 999 !important;
+
+    overflow: visible !important;
+}
+
+.invitation__text h1 {
+    display: block !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color: #593f36 !important;
+
+    white-space: nowrap !important;
+
+    overflow: visible !important;
+
+    text-align: center !important;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif !important;
+
+    font-weight: 400 !important;
+
+    font-size: clamp(27px, 6.8vw, 39px) !important;
+
+    line-height: 1.2 !important;
 }
