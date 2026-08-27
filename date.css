@@ -68,35 +68,6 @@ body {
 }
 
 
-/* =========================
-   ДЕКОРАТИВНЫЕ ЛИНИИ ПО КРАЯМ
-========================= */
-
-.date-page::before,
-.date-page::after {
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-
-    width: 1px;
-    height: 80px;
-
-    background: #b49a6c;
-
-    opacity: 0.5;
-
-    transform: translateX(-50%);
-}
-
-.date-page::before {
-    top: 0;
-}
-
-.date-page::after {
-    bottom: 0;
-}
 
 
 /* =========================
