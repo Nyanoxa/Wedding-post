@@ -32,8 +32,6 @@ body {
 ======================================== */
 
 .invitation {
-    position: relative;
-
     width: 100%;
     height: 100dvh;
 
@@ -182,7 +180,7 @@ body {
 
 
 /* ========================================
-   ТЕКСТ ПРИГЛАШЕНИЯ
+   ТЕКСТ НА КОНВЕРТЕ
 ======================================== */
 
 .invitation__text {
@@ -215,7 +213,8 @@ body {
         "Times New Roman",
         serif;
 
-    font-size: clamp(9px, 2.5vw, 14px);
+    font-size:
+        clamp(9px, 2.5vw, 14px);
 
     font-weight: 400;
 
@@ -269,23 +268,19 @@ body {
 
 
 /* ========================================
-   ПЕЧАТЬ / КРУЖОК
+   КРУЖОК / ПЕЧАТЬ
 ======================================== */
 
 .envelope__seal {
     position: relative;
 
-    left: auto;
-    top: auto;
-    bottom: auto;
+    width: 58px;
+    height: 58px;
 
     /*
-       Расстояние между конвертом и кружком
+       Расстояние от конверта
     */
-    margin-top: clamp(80px, 17vh, 220px);
-
-    width: clamp(52px, 13vw, 64px);
-    height: clamp(52px, 13vw, 64px);
+    margin-top: 30px;
 
     flex-shrink: 0;
 
@@ -307,8 +302,7 @@ body {
         "Times New Roman",
         serif;
 
-    font-size:
-        clamp(24px, 6vw, 29px);
+    font-size: 27px;
 
     font-weight: 400;
 
@@ -327,7 +321,7 @@ body {
 
 
 /* ========================================
-   НАВЕДЕНИЕ НА ПЕЧАТЬ
+   НАВЕДЕНИЕ НА КРУЖОК
 ======================================== */
 
 .envelope__seal:hover {
@@ -336,37 +330,27 @@ body {
 
 
 /* ========================================
-   АНИМАЦИЯ КОНВЕРТА
-======================================== */
-
-.envelope.exit {
-    transform:
-        translate3d(0, -12px, 0) scale(0.97);
-
-    opacity: 0.85;
-}
-
-
-/* ========================================
    ПОДСКАЗКА
 ======================================== */
 
 .invitation__hint {
-    margin-top: 16px;
+    margin-top: 12px;
 
     font-family:
         Arial,
         sans-serif;
 
-    font-size: 10px;
+    font-size: 8px;
 
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
 
     color: #8c7a69;
 
     opacity: 0.8;
 
     text-transform: uppercase;
+
+    text-align: center;
 
     transition:
         opacity 0.3s ease,
@@ -383,6 +367,18 @@ body {
 
     transform:
         translateY(5px);
+}
+
+
+/* ========================================
+   АНИМАЦИЯ КОНВЕРТА
+======================================== */
+
+.envelope.exit {
+    transform:
+        translate3d(0, -12px, 0) scale(0.97);
+
+    opacity: 0.85;
 }
 
 
@@ -415,13 +411,14 @@ body {
     will-change: opacity;
 }
 
+
 .page-transition.active {
     opacity: 1;
 }
 
 
 /* ========================================
-   МОБИЛЬНАЯ ВЕРСИЯ
+   МОБИЛЬНЫЕ ТЕЛЕФОНЫ
 ======================================== */
 
 @media (max-width: 600px) {
@@ -430,7 +427,7 @@ body {
         width: 100%;
         height: 100dvh;
 
-        padding: 12px;
+        padding: 15px;
 
         justify-content: center;
     }
@@ -457,6 +454,7 @@ body {
         top: 15%;
     }
 
+
     .invitation__text p {
         font-size:
             clamp(8px, 2.5vw, 11px);
@@ -467,6 +465,7 @@ body {
         margin-bottom: 12px;
     }
 
+
     .invitation__text h1 {
         font-size:
             clamp(22px, 6.5vw, 30px);
@@ -476,24 +475,19 @@ body {
     /* КРУЖОК */
 
     .envelope__seal {
-        width:
-            clamp(50px, 15vw, 60px);
+        width: 58px;
+        height: 58px;
 
-        height:
-            clamp(50px, 15vw, 60px);
+        margin-top: 30px;
 
-        margin-top:
-            clamp(70px, 17vh, 220px);
-
-        font-size:
-            clamp(23px, 6.5vw, 28px);
+        font-size: 27px;
     }
 
 
     /* ПОДСКАЗКА */
 
     .invitation__hint {
-        margin-top: 13px;
+        margin-top: 12px;
 
         font-size: 8px;
 
@@ -503,13 +497,13 @@ body {
 
 
 /* ========================================
-   ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ
+   МАЛЕНЬКИЕ ТЕЛЕФОНЫ
 ======================================== */
 
 @media (max-width: 380px) {
 
     .invitation {
-        padding: 8px;
+        padding: 10px;
     }
 
 
@@ -537,15 +531,13 @@ body {
     }
 
 
-    /* КРУЖОК */
-
     .envelope__seal {
-        width: 48px;
-        height: 48px;
+        width: 50px;
+        height: 50px;
 
-        margin-top: 80px;
+        margin-top: 25px;
 
-        font-size: 22px;
+        font-size: 23px;
 
         border-width: 2px;
     }
@@ -568,7 +560,7 @@ body {
 @media (max-height: 650px) {
 
     .invitation {
-        padding: 8px;
+        padding: 10px;
     }
 
 
@@ -579,14 +571,14 @@ body {
 
 
     .envelope__seal {
-        margin-top: 50px;
+        margin-top: 20px;
     }
 
 
     .invitation__hint {
-        margin-top: 9px;
+        margin-top: 8px;
 
-        font-size: 8px;
+        font-size: 7px;
     }
 }
 
@@ -604,7 +596,12 @@ body {
 
 
     .envelope__seal {
-        margin-top: 35px;
+        width: 48px;
+        height: 48px;
+
+        margin-top: 15px;
+
+        font-size: 22px;
     }
 
 
