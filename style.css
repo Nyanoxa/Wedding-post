@@ -44,7 +44,6 @@ body {
     justify-content: center;
 
     padding: 0;
-
     margin: 0;
 }
 
@@ -56,10 +55,8 @@ body {
 .envelope {
     position: relative;
 
-    /* На телефоне примерно как на скриншоте */
     width: 86vw;
 
-    /* Ограничение на больших экранах */
     max-width: 580px;
 
     min-width: 0;
@@ -78,6 +75,7 @@ body {
 
     isolation: isolate;
 
+    /* ТЕНЬ САМОГО КОНВЕРТА */
     box-shadow:
         0 15px 35px rgba(73, 57, 42, 0.10);
 
@@ -110,6 +108,7 @@ body {
 
 /* ========================================
    ВЕРХНИЙ КЛАПАН
+   РАСТЯНУТ ДО КРУЖОЧКА
 ======================================== */
 
 .envelope__top {
@@ -119,7 +118,9 @@ body {
     left: 0;
 
     width: 100%;
-    height: 44%;
+
+    /* БЫЛО 44%, ТЕПЕРЬ ДОХОДИТ ДО КРУЖОЧКА */
+    height: 58%;
 
     background: #ded3c0;
 
@@ -133,6 +134,7 @@ body {
 
     pointer-events: none;
 
+    /* ОСТАВЛЯЕМ ТОЛЬКО ЭТУ ТЕНЬ */
     filter:
         drop-shadow(
             0 2px 3px rgba(91, 68, 57, 0.12)
@@ -141,60 +143,15 @@ body {
 
 
 /* ========================================
-   ЛЕВАЯ СКЛАДКА
+   НИЖНИЕ СКЛАДКИ УБРАНЫ
 ======================================== */
 
 .envelope::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 47%;
-
-    background: #f1eadc;
-
-    clip-path: polygon(
-        0 0,
-        50% 100%,
-        0 100%
-    );
-
-    z-index: 2;
-
-    pointer-events: none;
+    content: none;
 }
 
-
-/* ========================================
-   ПРАВАЯ СКЛАДКА
-======================================== */
-
 .envelope::after {
-    content: "";
-
-    position: absolute;
-
-    right: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 47%;
-
-    background: #f1eadc;
-
-    clip-path: polygon(
-        100% 0,
-        50% 100%,
-        100% 100%
-    );
-
-    z-index: 2;
-
-    pointer-events: none;
+    content: none;
 }
 
 
@@ -297,7 +254,7 @@ body {
 
 
 /* ========================================
-   ПЕЧАТЬ
+   ПЕЧАТЬ / КРУЖОЧЕК
 ======================================== */
 
 .envelope__seal {
@@ -309,7 +266,8 @@ body {
     width: 108px;
     height: 108px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     display: flex;
 
@@ -337,6 +295,7 @@ body {
 
     z-index: 100;
 
+    /* ТЕНЬ КРУЖОЧКА */
     box-shadow:
         0 7px 16px rgba(55, 42, 33, 0.16),
         0 2px 5px rgba(55, 42, 33, 0.12);
@@ -435,7 +394,8 @@ body {
 
     opacity: 0;
 
-    transform: translate3d(0, 0, 0);
+    transform:
+        translate3d(0, 0, 0);
 
     transition:
         opacity 0.45s ease;
@@ -471,7 +431,6 @@ body {
         justify-content: center;
 
         padding: 0;
-
         margin: 0;
     }
 
@@ -511,14 +470,15 @@ body {
     }
 
 
-    /* ВЕРХНИЙ КЛАПАН */
+    /* ВЕРХНИЙ КЛАПАН
+       РАСТЯНУТ ДО КРУЖОЧКА */
 
     .envelope__top {
-        height: 44%;
+        height: 58%;
     }
 
 
-    /* ПЕЧАТЬ */
+    /* КРУЖОЧЕК */
 
     .envelope__seal {
         width: 108px;
@@ -584,7 +544,7 @@ body {
 
 
     .envelope__top {
-        height: 44%;
+        height: 58%;
     }
 
 
@@ -622,7 +582,13 @@ body {
 
 
     .envelope {
-        width: min(86vw, 500px);
+        width:
+            min(86vw, 500px);
+    }
+
+
+    .envelope__top {
+        height: 58%;
     }
 
 
@@ -653,7 +619,8 @@ body {
 @media (max-height: 550px) {
 
     .envelope {
-        width: min(78vw, 420px);
+        width:
+            min(78vw, 420px);
     }
 
 
@@ -664,6 +631,11 @@ body {
 
     .invitation__text h1 {
         font-size: 24px;
+    }
+
+
+    .envelope__top {
+        height: 58%;
     }
 
 
