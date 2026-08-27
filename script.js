@@ -1,43 +1,94 @@
-const envelope = document.querySelector(".envelope");
-const hint = document.querySelector(".invitation__hint");
-const pageTransition = document.querySelector("#pageTransition");
+document.addEventListener("DOMContentLoaded", function () {
 
-envelope.addEventListener("click", function () {
+    /* ========================================
+       ПРИНУДИТЕЛЬНО УСТАНАВЛИВАЕМ ИМЯ
+    ======================================== */
 
-    // Защита от повторного клика
-    if (envelope.classList.contains("open")) {
+    const names = document.querySelectorAll(
+        ".invitation__text h1"
+    );
+
+    names.forEach(function (name) {
+        name.textContent = "Самат & Аружан";
+    });
+
+
+    /* ========================================
+       ЭЛЕМЕНТЫ
+    ======================================== */
+
+    const envelope =
+        document.querySelector(".envelope");
+
+    const hint =
+        document.querySelector(".invitation__hint");
+
+    const pageTransition =
+        document.querySelector("#pageTransition");
+
+
+    /* ========================================
+       ЕСЛИ ЭЛЕМЕНТОВ НЕТ — ОСТАНАВЛИВАЕМСЯ
+    ======================================== */
+
+    if (!envelope) {
         return;
     }
 
-    // Открываем конверт
-    envelope.classList.add("open");
 
-    // Убираем подсказку
-    hint.style.opacity = "0";
+    /* ========================================
+       КЛИК ПО КОНВЕРТУ
+    ======================================== */
 
+    envelope.addEventListener("click", function () {
 
-    // Даём анимации конверта немного проиграться
-    setTimeout(function () {
+        /* Защита от повторного клика */
 
-        // Немного отдаляем конверт
-        envelope.style.transform = "scale(0.96) translateY(-10px)";
-
-    }, 450);
+        if (envelope.classList.contains("open")) {
+            return;
+        }
 
 
-    // Начинаем переход
-    setTimeout(function () {
+        /* Открываем конверт */
 
-        pageTransition.classList.add("active");
-
-    }, 800);
+        envelope.classList.add("open");
 
 
-    // Открываем вторую страницу
-    setTimeout(function () {
+        /* Убираем подсказку */
 
-        window.location.href = "welcome.html";
+        if (hint) {
+            hint.classList.add("hidden");
+        }
 
-    }, 1600);
+
+        /* Небольшое движение конверта */
+
+        setTimeout(function () {
+
+            envelope.classList.add("exit");
+
+        }, 450);
+
+
+        /* Затемнение страницы */
+
+        setTimeout(function () {
+
+            if (pageTransition) {
+                pageTransition.classList.add("active");
+            }
+
+        }, 750);
+
+
+        /* Переход */
+
+        setTimeout(function () {
+
+            window.location.href = "welcome.html";
+
+        }, 1200);
+
+    });
 
 });
