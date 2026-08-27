@@ -657,3 +657,66 @@ body {
         transition: none;
     }
 }
+/* ========================================
+   КРУЖОК ПОД ИМЕНАМИ ВНУТРИ КОНВЕРТА
+======================================== */
+
+.envelope__seal {
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 58% !important;
+
+    width: 58px !important;
+    height: 58px !important;
+
+    margin: 0 !important;
+
+    transform: translateX(-50%) !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #654a40;
+
+    border: 3px solid #b49a64;
+
+    color: #e8d9ae;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    z-index: 100 !important;
+
+    box-shadow:
+        0 7px 16px rgba(55, 42, 33, 0.16);
+
+    cursor: pointer;
+}
+
+
+/* Телефон */
+
+@media (max-width: 600px) {
+
+    .envelope__seal {
+        position: absolute !important;
+
+        left: 50% !important;
+        top: 58% !important;
+
+        width: 58px !important;
+        height: 58px !important;
+
+        margin: 0 !important;
+
+        transform: translateX(-50%) !important;
+    }
+
+}
